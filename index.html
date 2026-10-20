@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peosture — WASM Multi-Person Pose & Posture Detector</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="5" r="3"/>
+          <path d="M6 12h12"/>
+          <path d="M12 8v8"/>
+          <path d="m9 21 3-5 3 5"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Peosture</h1>
+        <p class="subtitle">In-Browser WASM People &amp; Posture Detection (MediaPipe Pose Landmarker)</p>
+      </div>
+    </div>
+
+    <div class="status-cluster">
+      <span id="model-status" class="status-badge" data-state="loading">Loading WASM…</span>
+      <span id="fps-counter" class="fps-badge">0 FPS</span>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- Left / Main Column: Video + Skeleton Canvas + Controls -->
+    <section class="stage-column">
+      <div class="video-stage">
+        <video id="webcam" class="mirrored" playsinline muted></video>
+        <canvas id="overlay" class="mirrored"></canvas>
+
+        <div id="camera-prompt" class="camera-prompt">
+          <div class="prompt-card">
+            <h2>Ready to Detect People &amp; Postures</h2>
+            <p>Runs 100% locally in WebAssembly. No video frames ever leave your browser.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-bar">
+        <div class="action-buttons">
+          <button id="toggle-camera-btn" class="btn btn-primary" disabled>Start Camera</button>
+          <button id="toggle-demo-btn" class="btn btn-secondary" disabled>Simulate Demo (3 People)</button>
+        </div>
+
+        <div class="control-group">
+          <label for="model-select">WASM Model</label>
+          <select id="model-select">
+            <option value="lite" selected>Lite (~5 MB · Fastest)</option>
+            <option value="full">Full (~9 MB · High Accuracy)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="max-poses-slider">
+            Max People: <strong id="max-poses-value">4</strong>
+          </label>
+          <input id="max-poses-slider" type="range" min="1" max="6" value="4" step="1" />
+        </div>
+
+        <label class="checkbox-label">
+          <input id="overlay-toggle" type="checkbox" checked />
+          Show Overlay
+        </label>
+
+        <label class="checkbox-label">
+          <input id="mirror-toggle" type="checkbox" checked />
+          Mirror View
+        </label>
+      </div>
+    </section>
+
+    <!-- Right Column: Live People Counter & Posture Cards -->
+    <aside class="sidebar">
+      <div class="counter-card">
+        <div class="counter-header">
+          <span class="counter-label">People in Front of Camera</span>
+          <span id="people-count" class="counter-number">0</span>
+        </div>
+        <p id="posture-summary" class="posture-summary">Start camera or demo to detect postures</p>
+      </div>
+
+      <div class="section-header">
+        <h2>Live Posture Breakdown</h2>
+      </div>
+
+      <div id="people-list" class="people-list">
+        <div class="empty-state">
+          <p>Waiting for detections…</p>
+          <span>Up to 4 people can be tracked simultaneously in WASM.</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

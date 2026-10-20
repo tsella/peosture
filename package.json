@@ -1,0 +1,63 @@
+{
+  "name": "peosture",
+  "version": "0.1.0",
+  "description": "Lightweight WASM multi-person pose & posture detection library for TypeScript and JavaScript",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./posture": {
+      "types": "./dist/posture.d.ts",
+      "import": "./dist/posture.js"
+    },
+    "./renderer": {
+      "types": "./dist/renderer.d.ts",
+      "import": "./dist/renderer.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "author": "Tom Sella",
+  "license": "MIT",
+  "homepage": "https://github.com/tsella/peosture#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsella/peosture.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsella/peosture/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "demo": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "wasm",
+    "pose-detection",
+    "posture",
+    "mediapipe",
+    "people-counter",
+    "computer-vision",
+    "typescript"
+  ],
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.18"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
