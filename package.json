@@ -1,6 +1,6 @@
 {
   "name": "peosture",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lightweight WASM multi-person pose & posture detection library for TypeScript and JavaScript",
   "type": "module",
   "main": "./dist/index.js",

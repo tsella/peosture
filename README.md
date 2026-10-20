@@ -4,7 +4,7 @@
 
 **In-browser WebAssembly multi-person detection & biomechanical posture classification.**
 
-[![Version](https://img.shields.io/badge/version-0.1.0-38bdf8?style=flat-square)](https://github.com/tsella/peosture/releases)
+[![Version](https://img.shields.io/badge/version-0.1.1-38bdf8?style=flat-square)](https://github.com/tsella/peosture/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-10b981?style=flat-square)](./LICENSE)
 [![Model: MediaPipe Pose](https://img.shields.io/badge/WASM-MediaPipe_Pose-a855f7?style=flat-square)](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6?style=flat-square)](./src/types.ts)

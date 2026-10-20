@@ -2,6 +2,19 @@
 
 All notable changes to `peosture` will be documented in this file.
 
+## [0.1.1] - 2026-10-19
+
+### Added
+- Runtime overlay toggling via `peosture.setOverlay(enabledOrOptions)`, `peosture.overlayEnabled`, and `RenderOptions.enabled`.
+- Browser compatibility matrix (Chrome 99+, Safari/WebKit 16.4+, Firefox 112+) in `README.md`, `AGENTS.md`, and `docs/API.md`.
+- `CLAUDE.md` referencing `@AGENTS.md`.
+
+### Fixed
+- Side-profile single-ear fallback when computing `neckTiltDeg` in `analyzePosture`.
+- Upper-body confidence calculation when lower-body joints are outside the webcam frame.
+- Defensive landmark bounds and core-joint guards in `analyzePosture`.
+- Automatic canvas clearing when `peosture.stop()` or `peosture.setOverlay(false)` is called.
+
 ## [0.1.0] - 2026-10-19
 
 ### Added
